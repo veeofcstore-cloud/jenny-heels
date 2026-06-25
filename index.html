@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="LOVEE JENI Heels – Kitten heels 5cm elegan & nyaman seharian. Warna Hitam, Light Cream, Biscuit. Harga Rp 105.000. Order via WhatsApp, bayar BCA / GoPay."/>
+  <meta name="theme-color" content="#F8F3EE"/>
+
+  <!-- Open Graph (untuk preview saat dibagikan / Meta Ads) -->
+  <meta property="og:type"        content="product"/>
+  <meta property="og:title"       content="LOVEE JENI Heels – Auto Jenjang Rp 105.000"/>
+  <meta property="og:description" content="Kitten heels 5cm premium, nyaman seharian. 3 warna pilihan. Order sekarang!"/>
+  <meta property="og:image"       content="https://veeofcstore-cloud.github.io/lovee-heels/assets/hero.jpg"/>
+  <meta property="og:url"         content="https://veeofcstore-cloud.github.io/lovee-heels/"/>
+
+  <title>LOVEE JENI Heels – Auto Jenjang, Nyaman Seharian</title>
+
+  <!-- Preconnect font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="assets/hero.webp" type="image/webp"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- Font non-blocking -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        media="print" onload="this.media='all'"/>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"/>
+  </noscript>
+
+  <!-- Meta Pixel – deferred agar tidak block render -->
+  <script>
+    window.fbq=window.fbq||function(){(window._fbq=window._fbq||[]).push(arguments)};
+    window.addEventListener('load',function(){
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+      s.onload=function(){
+        fbq('init','1311289140538439');
+        fbq('track','PageView');
+      };
+    });
+  </script>
+</head>
+<body>
+
+<!-- ╔══════════════════════════╗
+     ║        NAVBAR            ║
+     ╚══════════════════════════╝ -->
+<!-- URGENCY BANNER -->
+<div class="urgency-banner" id="urgencyBanner">
+  🔥 <strong>FLASH SALE HARI INI!</strong> Harga Rp 105.000 — Hemat Rp 30.000 &nbsp;·&nbsp; 
+  <span id="bannerStock">14</span> pasang tersisa &nbsp;
+  <a href="#order" onclick="document.getElementById('urgencyBanner').style.display='none'">Pesan →</a>
+</div>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <div class="nav__logo">
+      <span class="logo-mark">V</span>
+      <div class="logo-text-wrap">
+        <span class="logo-name">LOVEE</span>
+        <span class="logo-sub">OFFICIAL STORE</span>
+      </div>
+    </div>
+    <a href="#order" class="nav__cta" onclick="px('Lead')">Pesan Sekarang</a>
+  </div>
+</nav>
+
+<!-- ╔══════════════════════════╗
+     ║          HERO            ║
+     ╚══════════════════════════╝ -->
+<section class="hero" id="top">
+  <div class="hero__bg">
+    <picture>
+      <source srcset="assets/hero.webp" type="image/webp"/>
+      <img src="assets/hero.jpg" alt="LOVEE JENI Heels dipakai wanita elegan"
+           id="heroImg" class="hero__img"
+           fetchpriority="high" decoding="async" width="1200" height="900"/>
+    </picture>
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <p class="eyebrow">Kitten Heels 5 CM &middot; Premium &middot; Nyaman</p>
+    <h1 class="hero__title">AUTO<br/><em>JENJANG</em></h1>
+    <p class="hero__sub">Dari Rapat Pagi sampai Kondangan Malam — Tetap Nyaman</p>
+    <div class="hero__badges">
+      <span>✓ Bahan Vegan Leather</span>
+      <span>✓ Sol Anti-Selip</span>
+      <span>✓ Square Toe Modern</span>
+    </div>
+    <div class="hero__price-snap">
+      <span class="price-strike">Rp 135.000</span>
+      <span class="price-big">Rp 105.000</span>
+      <span class="price-disc">22% OFF</span>
+    </div>
+    <a href="#order" class="btn-primary" onclick="px('InitiateCheckout')">
+      Pesan Sekarang &rarr;
+    </a>
+    <p class="hero__stock">⚡ Sisa <strong id="stockNum">14</strong> pasang hari ini</p>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║        TRUST BAR         ║
+     ╚══════════════════════════╝ -->
+<div class="trust">
+  <div class="trust__inner">
+    <div class="trust__item"><span>⭐</span><div><b>4.9/5</b><small>Rating Shopee</small></div></div>
+    <div class="trust__sep"></div>
+    <div class="trust__item"><span>👠</span><div><b>500+</b><small>Terjual Bulan Ini</small></div></div>
+    <div class="trust__sep"></div>
+    <div class="trust__item"><span>🔄</span><div><b>Garansi</b><small>Tukar Ukuran 7 Hari</small></div></div>
+    <div class="trust__sep"></div>
+    <div class="trust__item"><span>⚡</span><div><b>Kirim 1×24 Jam</b><small>Setelah Pembayaran</small></div></div>
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════╗
+     ║       VIDEO SECTION      ║
+     ╚══════════════════════════╝ -->
+<section class="video-section" id="video">
+  <div class="container">
+    <p class="eyebrow">Lihat Sendiri</p>
+    <h2 class="section-title">LOVEE JENI Heels in Action</h2>
+    <p class="section-desc">Satu video, seribu kata. Lihat betapa elegannya JENI Heels saat dipakai.</p>
+    <div class="video-wrap">
+      <video
+        id="promoVideo"
+        src="assets/jeni-video.mp4"
+        poster="assets/hero.jpg"
+        playsinline
+        loop
+        muted
+        preload="metadata"
+        aria-label="Video LOVEE JENI Heels"
+      ></video>
+      <div class="video-overlay" id="videoOverlay" onclick="playVideo()">
+        <div class="play-btn" aria-label="Putar video">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+            <path d="M8 5.14v14l11-7-11-7z"/>
+          </svg>
+        </div>
+        <div class="video-caption">
+          <span>👠 LOVEE JENI Heels</span>
+          <span>Tap untuk putar</span>
+        </div>
+      </div>
+    </div>
+    <div class="video-stats">
+      <div class="vstat"><strong>5 CM</strong><span>Tinggi Ideal</span></div>
+      <div class="vstat"><strong>3</strong><span>Pilihan Warna</span></div>
+      <div class="vstat"><strong>6+</strong><span>Jam Nyaman</span></div>
+      <div class="vstat"><strong>500+</strong><span>Sudah Terjual</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║       PRODUCT            ║
+     ╚══════════════════════════╝ -->
+<section class="product" id="product">
+  <div class="container">
+    <p class="eyebrow">Koleksi Unggulan</p>
+    <h2 class="section-title">LOVEE JENI Heels</h2>
+    <p class="section-desc">Satu heels, semua momen. Desain minimalis timeless yang bisa dipakai ke mana saja.</p>
+
+    <!-- Color Picker -->
+    <div class="cpicker">
+      <p class="cpicker__label">Pilih Warna :</p>
+      <div class="cpicker__opts" role="group" aria-label="Pilihan warna">
+        <button class="cpick active" data-c="cream"   data-l="Light Cream" aria-pressed="true"
+                onclick="pickColor(this)">
+          <span class="dot" style="background:#F5EDE0;outline:2px solid #C9A84C"></span>Light Cream
+        </button>
+        <button class="cpick" data-c="biscuit" data-l="Biscuit" aria-pressed="false"
+                onclick="pickColor(this)">
+          <span class="dot" style="background:#D4A574"></span>Biscuit
+        </button>
+        <button class="cpick" data-c="black" data-l="Hitam" aria-pressed="false"
+                onclick="pickColor(this)">
+          <span class="dot" style="background:#1A1A1A"></span>Hitam
+        </button>
+      </div>
+    </div>
+
+    <!-- Showcase -->
+    <div class="showcase">
+      <div class="showcase__main">
+        <picture id="picMain">
+          <source srcset="assets/product-cream.webp" type="image/webp" id="srcWebp"/>
+          <img src="assets/product-cream.jpg" id="imgMain"
+               alt="LOVEE JENI Heels Light Cream"
+               loading="eager" decoding="async" width="900" height="900"/>
+        </picture>
+        <span class="showcase__tag" id="colorTag">Light Cream</span>
+      </div>
+      <div class="showcase__thumbs">
+        <picture>
+          <source srcset="assets/product-cream.webp" type="image/webp"/>
+          <img src="assets/product-cream.jpg" alt="Light Cream" class="thumb active"
+               onclick="pickThumb(this,'cream')" loading="eager" width="120" height="120"/>
+        </picture>
+        <picture>
+          <source srcset="assets/product-biscuit.webp" type="image/webp"/>
+          <img src="assets/product-biscuit.jpg" alt="Biscuit" class="thumb"
+               onclick="pickThumb(this,'biscuit')" loading="lazy" width="120" height="120"/>
+        </picture>
+        <picture>
+          <source srcset="assets/product-black.webp" type="image/webp"/>
+          <img src="assets/product-black.jpg" alt="Hitam" class="thumb"
+               onclick="pickThumb(this,'black')" loading="lazy" width="120" height="120"/>
+        </picture>
+        <picture>
+          <source srcset="assets/heel-detail.webp" type="image/webp"/>
+          <img src="assets/heel-detail.jpg" alt="Detail Heel 5cm" class="thumb"
+               onclick="pickThumb(this,'detail')" loading="lazy" width="120" height="120"/>
+        </picture>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="feat">
+        <div class="feat__icon">👠</div>
+        <h3>Kitten Heel 5 CM</h3>
+        <p>Kaki otomatis jenjang tanpa pegal. Ideal untuk pemakaian dari pagi hingga malam.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__icon">🌿</div>
+        <h3>Vegan Leather Premium</h3>
+        <p>Lembut, tidak mudah lecet, mudah dibersihkan. Awet untuk pemakaian harian.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__icon">🛡️</div>
+        <h3>Sol Anti-Selip</h3>
+        <p>Rubber outsole tebal dengan grip kuat. Aman di lantai licin kantor maupun outdoor.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__icon">◻️</div>
+        <h3>Square Toe Modern</h3>
+        <p>Ujung kotak memberi ruang lebih untuk jari. Stylish & nyaman sepanjang hari.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__icon">🔒</div>
+        <h3>Ankle Strap Adjustable</h3>
+        <p>Gesper gold-plated bisa disesuaikan. Sandal tidak mudah lepas saat berjalan.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__icon">💝</div>
+        <h3>Insole Empuk</h3>
+        <p>Padding tebal memastikan kaki tetap nyaman bahkan setelah berjam-jam dipakai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║        OCCASION          ║
+     ╚══════════════════════════╝ -->
+<section class="occasion">
+  <div class="container">
+    <p class="eyebrow">Cocok Untuk</p>
+    <h2 class="section-title">Untuk Setiap Momen Mu</h2>
+    <div class="occ-grid">
+      <div class="occ"><span>💼</span><h3>Kerja & Meeting</h3><p>Tampil profesional & percaya diri di kantor atau presentasi klien</p></div>
+      <div class="occ"><span>💍</span><h3>Kondangan & Pesta</h3><p>Elegan untuk resepsi pernikahan, wisuda, dan acara formal lainnya</p></div>
+      <div class="occ"><span>☕</span><h3>Hangout & Dinner</h3><p>Stylish untuk brunch, date night, atau jalan-jalan di mall</p></div>
+      <div class="occ"><span>📸</span><h3>Foto & Konten</h3><p>OOTD-able dan photogenic dari segala angle untuk media sosial</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║      TESTIMONIAL         ║
+     ╚══════════════════════════╝ -->
+<section class="testi">
+  <div class="container">
+    <p class="eyebrow">Kata Mereka</p>
+    <h2 class="section-title">Real Reviews Customer LOVEE</h2>
+    <div class="testi-grid">
+      <div class="tcard">
+        <div class="tcard__stars" aria-label="5 bintang">⭐⭐⭐⭐⭐</div>
+        <p>"Udah coba banyak heels tapi ini yang paling nyaman! Dipake kondangan 6 jam gak pegel sama sekali. Langsung beli 2 warna!"</p>
+        <div class="tcard__who"><div class="av">A</div><div><b>Aulia R.</b><small>Jakarta · Verified Buyer</small></div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard__stars" aria-label="5 bintang">⭐⭐⭐⭐⭐</div>
+        <p>"Kualitas bahan premium banget untuk harganya! Ankle strap-nya kokoh, gespernya gold cantik. Repeat order ke-3 nih!"</p>
+        <div class="tcard__who"><div class="av">S</div><div><b>Sinta M.</b><small>Bandung · Verified Buyer</small></div></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard__stars" aria-label="5 bintang">⭐⭐⭐⭐⭐</div>
+        <p>"Akhirnya nemu heels yang enak dipake kerja seharian. Warna biscuit-nya hits banget, cocok sama semua outfit!"</p>
+        <div class="tcard__who"><div class="av">D</div><div><b>Dewi K.</b><small>Surabaya · Verified Buyer</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║       ORDER FORM         ║
+     ╚══════════════════════════╝ -->
+<section class="order" id="order">
+  <div class="container">
+    <p class="eyebrow">Pesan Sekarang</p>
+    <h2 class="section-title">Dapatkan LOVEE JENI Heels-mu</h2>
+
+    <div class="order__wrap">
+
+      <!-- ── Sticky Price Card ── -->
+      <aside class="pcard">
+        <div class="pcard__badge">HARGA SPESIAL</div>
+        <div class="pcard__was">Rp 135.000</div>
+        <div class="pcard__price">Rp 105.000</div>
+        <div class="pcard__save">Hemat Rp 30.000 &nbsp;·&nbsp; 22% OFF</div>
+        <ul class="pcard__perks">
+          <li>✓ Garansi tukar ukuran 7 hari</li>
+          <li>✓ Dikemas premium gift box</li>
+          <li>✓ Dikirim dalam 1×24 jam</li>
+          <li>✓ Pembayaran BCA / BSI / GoPay</li>
+        </ul>
+        <div class="pcard__timer">
+          <p>Harga spesial berakhir dalam</p>
+          <div class="countdown" id="cd" aria-live="polite">
+            <span id="ch">23</span>:<span id="cm">59</span>:<span id="cs">47</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── Form ── -->
+      <div class="form-box">
+        <h3>Form Pemesanan</h3>
+
+        <div class="fg">
+          <label for="nama">Nama Lengkap *</label>
+          <input type="text" id="nama" placeholder="Nama penerima" autocomplete="name" required/>
+        </div>
+        <div class="fg">
+          <label for="wa">No. WhatsApp *</label>
+          <input type="tel" id="wa" placeholder="08xxxxxxxxxx" inputmode="numeric" autocomplete="tel" required/>
+        </div>
+        <div class="fg">
+          <label for="alamat">Alamat Lengkap *</label>
+          <textarea id="alamat" rows="3" placeholder="Jl., No., RT/RW, Kel., Kec., Kota/Kab., Provinsi, Kode Pos" autocomplete="street-address" required></textarea>
+        </div>
+
+        <div class="frow">
+          <div class="fg">
+            <label for="fwarna">Warna *</label>
+            <select id="fwarna" required>
+              <option value="">-- Pilih Warna --</option>
+              <option value="Light Cream">Light Cream</option>
+              <option value="Biscuit">Biscuit</option>
+              <option value="Hitam">Hitam</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="fukuran">Ukuran *</label>
+            <select id="fukuran" required>
+              <option value="">-- Pilih Ukuran --</option>
+              <option>36</option><option>37</option><option>38</option>
+              <option>39</option><option>40</option><option>41</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg">
+          <label>Jumlah *</label>
+          <div class="qty">
+            <button type="button" onclick="chQty(-1)" aria-label="Kurangi">−</button>
+            <input type="number" id="qty" value="1" min="1" max="10" readonly aria-label="Jumlah"/>
+            <button type="button" onclick="chQty(1)" aria-label="Tambah">+</button>
+          </div>
+        </div>
+
+        <!-- Ekspedisi -->
+        <div class="fg">
+          <label>Ekspedisi *</label>
+          <div class="radio-list" role="radiogroup">
+            <label class="ropt"><input type="radio" name="ekspedisi" value="JNE REG" checked/> JNE REG (2–3 hari kerja)</label>
+            <label class="ropt"><input type="radio" name="ekspedisi" value="JNE YES"/> JNE YES / Next Day</label>
+            <label class="ropt"><input type="radio" name="ekspedisi" value="J&T Express"/> J&T Express (2–3 hari kerja)</label>
+            <label class="ropt"><input type="radio" name="ekspedisi" value="SiCepat REG"/> SiCepat REG (2–3 hari kerja)</label>
+            <label class="ropt"><input type="radio" name="ekspedisi" value="AnterAja"/> AnterAja (2–3 hari kerja)</label>
+          </div>
+        </div>
+
+        <!-- Pembayaran -->
+        <div class="fg">
+          <label>Metode Pembayaran *</label>
+          <div class="pay-tabs" role="radiogroup">
+            <label class="ptab active-tab" id="tabBCA" onclick="showPay('bca')">
+              <input type="radio" name="pay" value="bca" checked/> 🏦 Transfer BCA
+            </label>
+            <label class="ptab" id="tabBSI" onclick="showPay('bsi')">
+              <input type="radio" name="pay" value="bsi"/> 🏦 Transfer BSI
+            </label>
+            <label class="ptab" id="tabGP" onclick="showPay('gopay')">
+              <input type="radio" name="pay" value="gopay"/> 📱 GoPay
+            </label>
+          </div>
+        </div>
+
+        <!-- BCA Info -->
+        <div class="pay-panel" id="panelBCA">
+          <div class="bank-card">
+            <div class="bank-logo bca-logo">BCA</div>
+            <div class="bank-detail">
+              <span class="bank-num">6822029325</span>
+              <span class="bank-an">a.n. Muhammad Kurniawan SE</span>
+            </div>
+            <button type="button" class="copy-btn" onclick="copyNum('6822029325',this)">Salin</button>
+          </div>
+          <p class="pay-note">Setelah transfer, kirim bukti bayar via WhatsApp untuk konfirmasi.</p>
+        </div>
+
+        <!-- BSI Info -->
+        <div class="pay-panel hidden" id="panelBSI">
+          <div class="bank-card">
+            <div class="bank-logo bsi-logo">BSI</div>
+            <div class="bank-detail">
+              <span class="bank-num">7332718511</span>
+              <span class="bank-an">a.n. Musdalifah Lestari</span>
+            </div>
+            <button type="button" class="copy-btn" onclick="copyNum('7332718511',this)">Salin</button>
+          </div>
+          <p class="pay-note">Setelah transfer, kirim bukti bayar via WhatsApp untuk konfirmasi.</p>
+        </div>
+
+        <!-- GoPay Info -->
+        <div class="pay-panel hidden" id="panelGopay">
+          <div class="bank-card">
+            <div class="bank-logo gp-logo">GoPay</div>
+            <div class="bank-detail">
+              <span class="bank-num">0816-1318-281</span>
+              <span class="bank-an">a.n. Muhammad Kurniawan</span>
+            </div>
+            <button type="button" class="copy-btn" onclick="copyNum('08161318281',this)">Salin</button>
+          </div>
+          <p class="pay-note">Setelah transfer GoPay, kirim bukti bayar via WhatsApp untuk konfirmasi.</p>
+        </div>
+
+        <!-- Total -->
+        <div class="total-box" aria-live="polite">
+          <div class="total-row"><span>Harga Produk</span><span id="tHarga">Rp 105.000</span></div>
+          <div class="total-row"><span>Ongkos Kirim</span><span class="ongkir-info">Sesuai ekspedisi</span></div>
+          <div class="total-row total-final"><b>Total Produk</b><b id="tFinal">Rp 105.000</b></div>
+        </div>
+
+        <button type="button" class="btn-wa" onclick="submitOrder()">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pesan via WhatsApp
+        </button>
+        <p class="wa-note">Kamu akan diarahkan ke WhatsApp untuk konfirmasi & kirim bukti bayar</p>
+
+        <!-- Panduan Ukuran -->
+        <details class="size-guide">
+          <summary>📏 Panduan Ukuran — klik untuk lihat</summary>
+          <table>
+            <thead><tr><th>Size</th><th>Panjang Kaki</th><th>Lebar Kaki</th></tr></thead>
+            <tbody>
+              <tr><td>36</td><td>23.0 cm</td><td>Normal – Sempit</td></tr>
+              <tr><td>37</td><td>23.5 cm</td><td>Normal</td></tr>
+              <tr><td>38</td><td>24.0 cm</td><td>Normal – Lebar</td></tr>
+              <tr><td>39</td><td>24.5 cm</td><td>Normal</td></tr>
+              <tr><td>40</td><td>25.0 cm</td><td>Normal – Lebar</td></tr>
+              <tr><td>41</td><td>25.5 cm</td><td>Normal – Lebar</td></tr>
+            </tbody>
+          </table>
+          <p class="size-tip">💡 Kaki lebar atau setengah ukuran? Ambil 1 size UP ya.</p>
+        </details>
+      </div><!-- /form-box -->
+    </div><!-- /order__wrap -->
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║           FAQ            ║
+     ╚══════════════════════════╝ -->
+<section class="faq">
+  <div class="container">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="section-title">Pertanyaan Umum</h2>
+    <div class="faq__list">
+
+      <details class="faq__item">
+        <summary>Berapa lama pengiriman?</summary>
+        <p>Pesanan dikemas & dikirim dalam 1×24 jam setelah pembayaran dikonfirmasi. Estimasi tiba 2–3 hari kerja (JNE REG / J&T / SiCepat / AnterAja) atau 1 hari (JNE YES).</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>Apakah bisa tukar ukuran?</summary>
+        <p>Bisa! Garansi tukar ukuran 7 hari setelah barang diterima — syarat: belum dipakai & label masih terpasang. Ongkir tukar ditanggung pembeli.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>Berapa ongkos kirimnya?</summary>
+        <p>Ongkos kirim menyesuaikan tarif ekspedisi pilihan & lokasi kamu. Kamu bisa cek tarifnya di aplikasi masing-masing ekspedisi atau tanya CS kami sebelum order.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>Bagaimana cara konfirmasi pembayaran?</summary>
+        <p>Setelah klik "Pesan via WhatsApp", kamu akan diarahkan ke chat WA kami. Kirimkan screenshot bukti transfer / GoPay + nama & alamat. Pesanan langsung diproses.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>Apakah ada COD?</summary>
+        <p>LP ini hanya untuk Transfer BCA, BSI, dan GoPay. Untuk COD, silakan order di Shopee kami: <a href="https://shopee.co.id/vee.ofc.store" target="_blank" rel="noopener">vee.ofc.store</a>.</p>
+      </details>
+
+      <details class="faq__item">
+        <summary>Produk tersedia di marketplace mana saja?</summary>
+        <p>Produk LOVEE tersedia di Shopee (<a href="https://shopee.co.id/vee.ofc.store" target="_blank" rel="noopener">vee.ofc.store</a>). Order via halaman ini mendapat harga spesial eksklusif.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ╔══════════════════════════╗
+     ║         FOOTER           ║
+     ╚══════════════════════════╝ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="nav__logo">
+          <span class="logo-mark">V</span>
+          <div class="logo-text-wrap">
+            <span class="logo-name">LOVEE</span>
+            <span class="logo-sub" style="color:rgba(255,255,255,.45)">OFFICIAL STORE</span>
+          </div>
+        </div>
+        <p>Footwear wanita yang mengutamakan kenyamanan, kualitas, dan gaya untuk perempuan modern Indonesia.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Toko & Sosmed</h4>
+        <a href="https://shopee.co.id/vee.ofc.store" target="_blank" rel="noopener">🛍️ Shopee — vee.ofc.store</a>
+        <a href="https://instagram.com/loveeofficial.id" target="_blank" rel="noopener">📸 Instagram — @loveeofficial.id</a>
+        <a href="https://tiktok.com/@lovee.store" target="_blank" rel="noopener">🎵 TikTok — @lovee.store</a>
+        <a href="https://wa.me/628161318281" target="_blank" rel="noopener">💬 WhatsApp CS</a>
+      </div>
+      <div class="footer__contact">
+        <h4>Hubungi Kami</h4>
+        <p><a href="https://wa.me/628161318281">+62 816-1318-281</a></p>
+        <p>Jam: 08.00 – 21.00 WIB</p>
+        <p>Senin – Minggu</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 LOVEE Official Store · All Rights Reserved</p>
+      <p>Produk 100% asli. Waspada toko tidak resmi.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/628161318281?text=Halo%20LOVEE!%20Mau%20tanya%20soal%20JENI%20Heels"
+   class="wa-fab" target="_blank" rel="noopener" aria-label="Chat WhatsApp LOVEE">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- ╔══════════════════════════╗
+     ║     STICKY MOBILE CTA    ║
+     ╚══════════════════════════╝ -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="sticky-cta__left">
+    <span class="sticky-cta__name">LOVEE JENI Heels</span>
+    <div class="sticky-cta__price">
+      <span class="sticky-cta__was">Rp 135.000</span>
+      <span class="sticky-cta__now">Rp 105.000</span>
+    </div>
+  </div>
+  <a href="#order" class="sticky-cta__btn" onclick="px('InitiateCheckout')">
+    Pesan Sekarang →
+  </a>
+</div>
+
+<!-- JS defer = tidak blocking render sama sekali -->
+<script src="js/main.js" defer></script>
+
+<!-- SOCIAL PROOF POPUP -->
+<div class="sp-popup" id="spPopup">
+  <button class="sp-close" onclick="document.getElementById('spPopup').style.display='none'">✕</button>
+  <div class="sp-content">
+    <span class="sp-dot"></span>
+    <span id="spText">Aulia dari Jakarta baru saja memesan Biscuit ukuran 38</span>
+  </div>
+</div>
+
+</body>
+</html>
