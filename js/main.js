@@ -5,9 +5,38 @@
 
 'use strict';
 
-/* ── CONFIG ── */
-const WA_NUMBER = '628817440060';
-const PRICE_PER = 105000;
+/* ════════════════════════════════════════════════
+   ██████  CONFIG — ISI DI SINI
+   ════════════════════════════════════════════════
+   Langkah:
+   1. Daftar di https://emailjs.com (gratis)
+   2. Tambah Gmail Service → catat Service ID
+   3. Buat Template → catat Template ID
+   4. Dashboard → Account → catat Public Key
+   5. Paste ketiga nilai di bawah ini
+   ════════════════════════════════════════════════ */
+
+const WA_NUMBER = '628161318281';   // Nomor WA bisnis (jangan diubah)
+const PRICE_PER = 105000;           // Harga per pasang (jangan diubah)
+
+/* ── EMAILJS CONFIG ── */
+const EMAILJS_PUBLIC_KEY   = 'YBhKMzK9VBIn1p3Se';     // contoh: 'abc123XYZxyz'
+const EMAILJS_SERVICE_ID   = 'service_lovee999';     // contoh: 'service_abc123'
+const EMAILJS_TEMPLATE_ID  = 'template_r57sw0p';    // contoh: 'template_xyz789'
+const EMAILJS_TO           = 'vee.ofc.store@gmail.com';       // email tujuan backup
+
+/* ── Init EmailJS saat SDK siap ── */
+(function initEmailJS() {
+  const tryInit = () => {
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+      console.log('[LOVEE] EmailJS ready ✅');
+    } else {
+      setTimeout(tryInit, 200); // coba lagi setiap 200ms sampai SDK load
+    }
+  };
+  setTimeout(tryInit, 500);
+})();
 
 /* ── META PIXEL shorthand ── */
 function px(event, data) {
@@ -217,7 +246,7 @@ function submitOrder() {
   const PAY_LABEL = {
     bca:   'Transfer BCA — Rek. 6822029325 (Muhammad Kurniawan SE)',
     bsi:   'Transfer BSI — Rek. 7332718511 (Musdalifah Lestari)',
-    gopay: 'GoPay — 0881-7440-060 (Muhammad Kurniawan)',
+    gopay: 'GoPay — 0816-1318-281 (Muhammad Kurniawan)',
   };
 
   // ── VALIDASI ─────────────────────────────────────────
@@ -292,10 +321,10 @@ function sendOrderEmail(params) {
     if (typeof emailjs === 'undefined') return; // SDK belum load, skip
 
     emailjs.send(
-      'YOUR_EMAILJS_SERVICE_ID',    // ← diisi setelah setup EmailJS
-      'YOUR_EMAILJS_TEMPLATE_ID',   // ← diisi setelah setup EmailJS
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
       {
-        to_email:   'vee.ofc.store@gmail.com',
+        to_email:   EMAILJS_TO,
         order_id:   params.order_id,
         order_time: params.order_time,
         nama:       params.nama,
