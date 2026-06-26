@@ -184,7 +184,7 @@ function submitOrder() {
   const warna   = g('fwarna')?.value;
   const ukuran  = g('fukuran')?.value;
   const qty     = parseInt(g('qty')?.value) || 1;
-  const eksp    = document.querySelector('input[name="ekspedisi"]:checked')?.value || 'JNE REG';
+  const eksp    = document.getElementById('ekspedisiVal')?.value || 'JNE REG';
   const pay     = document.querySelector('input[name="pay"]:checked')?.value || 'bca';
 
   const PAY_LABEL = { bca: 'Transfer BCA (6822029325)', bsi: 'Transfer BSI (7332718511)', gopay: 'GoPay (0816-1318-281)' };
@@ -339,7 +339,7 @@ Mohon konfirmasi rekening / info ongkir selanjutnya ya. Terima kasih! 🙏`;
   setTimeout(() => {
     showProof();
     setInterval(showProof, 25000);
-  }, 8000);
+  }, 6000);
 })();
 
 /* ══════════════════════════════════
@@ -430,3 +430,13 @@ function playVideo() {
     obsOrder.observe(orderSection);
   }
 })();
+
+/* ══════════════════════════════════
+   EKSPEDISI LOGO PICKER
+══════════════════════════════════ */
+function pickEksp(btn) {
+  document.querySelectorAll('.eksp-card').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  const hiddenInput = document.getElementById('ekspedisiVal');
+  if (hiddenInput) hiddenInput.value = btn.dataset.val;
+}

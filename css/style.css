@@ -411,3 +411,108 @@ input,select,textarea{font-family:var(--ff-body)}
 @media(min-width:901px){
   .sticky-cta{display:none !important}
 }
+
+/* ══════════════════════════════════
+   EKSPEDISI LOGO PICKER
+══════════════════════════════════ */
+.fg-hint{font-size:10px;font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;margin-left:6px}
+
+.eksp-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:4px;
+}
+
+.eksp-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  padding:12px 6px 10px;
+  border:2px solid var(--border);
+  border-radius:var(--r-md);
+  background:var(--white);
+  cursor:pointer;
+  transition:all var(--tr);
+  font-family:var(--ff-body);
+  position:relative;
+}
+.eksp-card svg{
+  width:100%;
+  max-width:72px;
+  height:auto;
+  border-radius:3px;
+}
+.eksp-card>span:nth-child(2){
+  font-size:11px;
+  font-weight:700;
+  color:var(--dark);
+  line-height:1;
+}
+.eksp-eta{
+  font-size:10px;
+  color:var(--muted);
+  font-weight:400;
+  line-height:1;
+}
+.eksp-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+  box-shadow:0 4px 14px rgba(201,168,76,.15);
+}
+.eksp-card.active{
+  border-color:var(--gold);
+  background:rgba(201,168,76,.07);
+  box-shadow:0 4px 14px rgba(201,168,76,.18);
+}
+.eksp-card.active::after{
+  content:"✓";
+  position:absolute;
+  top:-8px;
+  right:-8px;
+  width:18px;
+  height:18px;
+  background:var(--gold);
+  color:var(--dark);
+  border-radius:50%;
+  font-size:10px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:18px;
+  text-align:center;
+}
+
+/* Mobile: 3 kolom di HP kecil */
+@media(max-width:480px){
+  .eksp-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Sembunyikan radio-list lama jika masih ada */
+.radio-list{display:none}
+
+/* ══════════════════════════════════
+   LOGO IMAGES
+══════════════════════════════════ */
+/* Navbar logo */
+.nav__logo{display:flex;align-items:center}
+.nav-logo-img{
+  height:42px;
+  width:auto;
+  object-fit:contain;
+  display:block;
+  /* Logo asli hitam — di navbar cukup tampilkan apa adanya */
+}
+
+/* Footer logo — invert jadi putih karena bg gelap */
+.footer-logo-wrap{margin-bottom:0}
+.footer-logo-img{
+  height:36px;
+  width:auto;
+  object-fit:contain;
+  display:block;
+  filter:invert(1) brightness(2);  /* hitam → putih di background gelap */
+  opacity:.9;
+}

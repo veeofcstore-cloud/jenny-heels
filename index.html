@@ -11,7 +11,7 @@
   <meta property="og:title"       content="LOVEE JENI Heels – Auto Jenjang Rp 105.000"/>
   <meta property="og:description" content="Kitten heels 5cm premium, nyaman seharian. 3 warna pilihan. Order sekarang!"/>
   <meta property="og:image"       content="https://veeofcstore-cloud.github.io/lovee-heels/assets/hero.jpg"/>
-  <meta property="og:url"         content="https://veeofcstore-cloud.github.io/jenny-heels/"/>
+  <meta property="og:url"         content="https://veeofcstore-cloud.github.io/lovee-heels/"/>
 
   <title>LOVEE JENI Heels – Auto Jenjang, Nyaman Seharian</title>
 
@@ -62,11 +62,10 @@
 <nav class="nav" id="nav">
   <div class="nav__inner">
     <div class="nav__logo">
-      <span class="logo-mark">V</span>
-      <div class="logo-text-wrap">
-        <span class="logo-name">LOVEE</span>
-        <span class="logo-sub">OFFICIAL STORE</span>
-      </div>
+      <picture>
+        <source srcset="assets/logo-stacked.webp" type="image/webp"/>
+        <img src="assets/logo-stacked.png" alt="LOVEE Official Store" class="nav-logo-img" width="44" height="44"/>
+      </picture>
     </div>
     <a href="#order" class="nav__cta" onclick="px('Lead')">Pesan Sekarang</a>
   </div>
@@ -382,14 +381,57 @@
 
         <!-- Ekspedisi -->
         <div class="fg">
-          <label>Ekspedisi *</label>
-          <div class="radio-list" role="radiogroup">
-            <label class="ropt"><input type="radio" name="ekspedisi" value="JNE REG" checked/> JNE REG (2–3 hari kerja)</label>
-            <label class="ropt"><input type="radio" name="ekspedisi" value="JNE YES"/> JNE YES / Next Day</label>
-            <label class="ropt"><input type="radio" name="ekspedisi" value="J&T Express"/> J&T Express (2–3 hari kerja)</label>
-            <label class="ropt"><input type="radio" name="ekspedisi" value="SiCepat REG"/> SiCepat REG (2–3 hari kerja)</label>
-            <label class="ropt"><input type="radio" name="ekspedisi" value="AnterAja"/> AnterAja (2–3 hari kerja)</label>
+          <label>Ekspedisi * <span class="fg-hint">Tap untuk pilih</span></label>
+          <div class="eksp-grid" role="radiogroup" aria-label="Pilihan ekspedisi" id="ekspGrid">
+
+            <button type="button" class="eksp-card active" data-val="JNE REG" onclick="pickEksp(this)">
+              <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="JNE">
+                <rect width="80" height="28" rx="4" fill="#E31E24"/>
+                <text x="40" y="19" font-family="Arial Black,sans-serif" font-size="13" font-weight="900" fill="white" text-anchor="middle" letter-spacing="1">JNE</text>
+              </svg>
+              <span>REG</span>
+              <span class="eksp-eta">2–3 hari</span>
+            </button>
+
+            <button type="button" class="eksp-card" data-val="JNE YES" onclick="pickEksp(this)">
+              <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="JNE">
+                <rect width="80" height="28" rx="4" fill="#E31E24"/>
+                <text x="40" y="19" font-family="Arial Black,sans-serif" font-size="13" font-weight="900" fill="white" text-anchor="middle" letter-spacing="1">JNE</text>
+              </svg>
+              <span>YES</span>
+              <span class="eksp-eta">Next Day</span>
+            </button>
+
+            <button type="button" class="eksp-card" data-val="J&T Express" onclick="pickEksp(this)">
+              <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="J&T Express">
+                <rect width="80" height="28" rx="4" fill="#E8000D"/>
+                <text x="40" y="20" font-family="Arial Black,sans-serif" font-size="12" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.5">J&amp;T</text>
+              </svg>
+              <span>Express</span>
+              <span class="eksp-eta">2–3 hari</span>
+            </button>
+
+            <button type="button" class="eksp-card" data-val="SiCepat REG" onclick="pickEksp(this)">
+              <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SiCepat">
+                <rect width="80" height="28" rx="4" fill="#F7941D"/>
+                <text x="40" y="19" font-family="Arial,sans-serif" font-size="9.5" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0">SiCepat</text>
+              </svg>
+              <span>REG</span>
+              <span class="eksp-eta">2–3 hari</span>
+            </button>
+
+            <button type="button" class="eksp-card" data-val="AnterAja" onclick="pickEksp(this)">
+              <svg viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AnterAja">
+                <rect width="80" height="28" rx="4" fill="#00529C"/>
+                <text x="40" y="19" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="white" text-anchor="middle">AnterAja</text>
+              </svg>
+              <span>Regular</span>
+              <span class="eksp-eta">2–3 hari</span>
+            </button>
+
           </div>
+          <!-- hidden input yang dikirim ke WA -->
+          <input type="hidden" id="ekspedisiVal" value="JNE REG"/>
         </div>
 
         <!-- Pembayaran -->
@@ -531,12 +573,11 @@
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <div class="nav__logo">
-          <span class="logo-mark">V</span>
-          <div class="logo-text-wrap">
-            <span class="logo-name">LOVEE</span>
-            <span class="logo-sub" style="color:rgba(255,255,255,.45)">OFFICIAL STORE</span>
-          </div>
+        <div class="footer-logo-wrap">
+          <picture>
+            <source srcset="assets/logo-horizontal.webp" type="image/webp"/>
+            <img src="assets/logo-horizontal.png" alt="LOVEE Official Store" class="footer-logo-img" width="140" height="61"/>
+          </picture>
         </div>
         <p>Footwear wanita yang mengutamakan kenyamanan, kualitas, dan gaya untuk perempuan modern Indonesia.</p>
       </div>
@@ -555,7 +596,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2025 LOVEE Official Store · All Rights Reserved</p>
+      <p>© 2026 LOVEE Official Store · All Rights Reserved</p>
       <p>Produk 100% asli. Waspada toko tidak resmi.</p>
     </div>
   </div>
