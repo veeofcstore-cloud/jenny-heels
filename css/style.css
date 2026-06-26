@@ -686,6 +686,7 @@ input,select,textarea{font-family:var(--ff-body)}
   .pay-info__num { font-size: 15px; }
 }
 
-/* Hide old tab styles (no longer used) */
+/* Old tab styles hidden */
 .pay-tabs, .ptab { display: none !important; }
-.pay-panel { display: none !important; }
+/* pay-panel hidden hanya via class, bukan global */
+.pay-panel.hidden { display: none !important; }
