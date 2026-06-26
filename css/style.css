@@ -516,3 +516,40 @@ input,select,textarea{font-family:var(--ff-body)}
   filter:invert(1) brightness(2);  /* hitam → putih di background gelap */
   opacity:.9;
 }
+
+/* ══════════════════════════════════
+   PAYMENT LOGO IMAGES (BCA/BSI/GoPay)
+══════════════════════════════════ */
+/* Hide old text-based logos */
+.bank-logo.bca-logo,
+.bank-logo.bsi-logo,
+.bank-logo.gp-logo { display: none !important; }
+
+/* New image logo wrapper */
+.bank-logo-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+.bank-logo-img {
+  width: 100px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: var(--r-sm);
+  display: block;
+}
+
+/* Adjust bank-card layout to accommodate wider logo */
+.bank-card {
+  gap: 14px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+/* Mobile: smaller logo */
+@media(max-width:480px) {
+  .bank-logo-img { width: 80px; height: 34px; }
+  .bank-logo-img-wrap { min-width: 80px; }
+}
