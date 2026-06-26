@@ -6,7 +6,7 @@
 'use strict';
 
 /* ── CONFIG ── */
-const WA_NUMBER = '628161318281';
+const WA_NUMBER = '628817440060';
 const PRICE_PER = 105000;
 
 /* ── META PIXEL shorthand ── */
@@ -131,17 +131,42 @@ function updateTotal() {
 /* ══════════════════════════════════
    PAYMENT TAB SWITCHER
 ══════════════════════════════════ */
-// Payment tab switcher
-function showPay(type) {
-  const panels = { bca: 'panelBCA', bsi: 'panelBSI', gopay: 'panelGopay' };
-  const tabs   = { bca: 'tabBCA',   bsi: 'tabBSI',   gopay: 'tabGP' };
-  Object.keys(panels).forEach(t => {
-    const panel = document.getElementById(panels[t]);
-    const tab   = document.getElementById(tabs[t]);
-    const show  = t === type;
-    if (panel) panel.classList.toggle('hidden', !show);
-    if (tab)   tab.classList.toggle('active-tab', show);
+/* ══════════════════════════════════
+   PAYMENT LOGO PICKER (unified)
+══════════════════════════════════ */
+function pickPay(btn) {
+  // Update button states
+  document.querySelectorAll('.pay-logo-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-pressed', 'false');
   });
+  btn.classList.add('active');
+  btn.setAttribute('aria-pressed', 'true');
+
+  const type = btn.dataset.pay;
+
+  // Show correct info panel with smooth transition
+  const panels = { bca: 'payInfoBCA', bsi: 'payInfoBSI', gopay: 'payInfoGopay' };
+  Object.keys(panels).forEach(t => {
+    const el = document.getElementById(panels[t]);
+    if (!el) return;
+    if (t === type) {
+      el.classList.remove('hidden');
+      el.style.animation = 'payFadeIn .25s ease';
+    } else {
+      el.classList.add('hidden');
+    }
+  });
+
+  // Update hidden input for WA message
+  const inp = document.getElementById('payVal');
+  if (inp) inp.value = type;
+}
+
+// Keep showPay as alias for backward compat
+function showPay(type) { 
+  const btn = document.querySelector(\`.pay-logo-btn[data-pay="\${type}"]\`);
+  if (btn) pickPay(btn);
 }
 
 /* ══════════════════════════════════
@@ -185,10 +210,17 @@ function submitOrder() {
   const ukuran  = g('fukuran')?.value;
   const qty     = parseInt(g('qty')?.value) || 1;
   const eksp    = document.getElementById('ekspedisiVal')?.value || 'JNE REG';
-  const pay     = document.querySelector('input[name="pay"]:checked')?.value || 'bca';
+  const pay     = document.getElementById('payVal')?.value || 'bca';
+  const orderID = 'JENI-' + Date.now().toString(36).toUpperCase();
+  const orderTime = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
 
-  const PAY_LABEL = { bca: 'Transfer BCA (6822029325)', bsi: 'Transfer BSI (7332718511)', gopay: 'GoPay (0816-1318-281)' };
+  const PAY_LABEL = {
+    bca:   'Transfer BCA — Rek. 6822029325 (Muhammad Kurniawan SE)',
+    bsi:   'Transfer BSI — Rek. 7332718511 (Musdalifah Lestari)',
+    gopay: 'GoPay — 0881-7440-060 (Muhammad Kurniawan)',
+  };
 
+  // ── VALIDASI ─────────────────────────────────────────
   const errors = [];
   if (!nama)   errors.push('• Nama lengkap');
   if (!wa)     errors.push('• Nomor WhatsApp');
@@ -201,9 +233,12 @@ function submitOrder() {
     return;
   }
 
-  // Fire Pixel
+  const total  = qty * PRICE_PER;
+  const fmtRp  = n => 'Rp ' + n.toLocaleString('id-ID');
+
+  // ── PIXEL PURCHASE ────────────────────────────────────
   px('Purchase', {
-    value: (qty * PRICE_PER) / 1000,
+    value: total / 1000,
     currency: 'IDR',
     content_name: 'LOVEE JENI Heels',
     content_ids: ['JENI-' + warna.replace(/\s+/, '-').toUpperCase()],
@@ -211,9 +246,19 @@ function submitOrder() {
     num_items: qty,
   });
 
-  const total = qty * PRICE_PER;
-  const fmtRp = n => 'Rp ' + n.toLocaleString('id-ID');
+  // ── BACKUP EMAIL via EmailJS ──────────────────────────
+  // Dikirim silent di background — tidak mengganggu alur order
+  sendOrderEmail({
+    order_id:    orderID,
+    order_time:  orderTime,
+    nama, wa, alamat, warna, ukuran,
+    qty:         String(qty),
+    ekspedisi:   eksp,
+    pembayaran:  PAY_LABEL[pay],
+    total:       fmtRp(total),
+  });
 
+  // ── BUKA WHATSAPP ─────────────────────────────────────
   const msg =
 `Halo LOVEE! Saya mau pesan:
 
@@ -230,9 +275,48 @@ Nama   : ${nama}
 WA     : ${wa}
 Alamat : ${alamat}
 
-Mohon konfirmasi rekening / info ongkir selanjutnya ya. Terima kasih! 🙏`;
+ID Order: ${orderID}
+Mohon konfirmasi rekening / info ongkir ya. Terima kasih! 🙏`;
 
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ══════════════════════════════════
+   EMAILJS — BACKUP ORDER
+   Kirim data order ke vee.ofc.store@gmail.com
+   silent di background (tidak block WA redirect)
+══════════════════════════════════ */
+function sendOrderEmail(params) {
+  // Pastikan EmailJS sudah siap
+  const send = () => {
+    if (typeof emailjs === 'undefined') return; // SDK belum load, skip
+
+    emailjs.send(
+      'YOUR_EMAILJS_SERVICE_ID',    // ← diisi setelah setup EmailJS
+      'YOUR_EMAILJS_TEMPLATE_ID',   // ← diisi setelah setup EmailJS
+      {
+        to_email:   'vee.ofc.store@gmail.com',
+        order_id:   params.order_id,
+        order_time: params.order_time,
+        nama:       params.nama,
+        wa:         params.wa,
+        alamat:     params.alamat,
+        produk:     'LOVEE JENI Heels',
+        warna:      params.warna,
+        ukuran:     params.ukuran,
+        qty:        params.qty,
+        ekspedisi:  params.ekspedisi,
+        pembayaran: params.pembayaran,
+        total:      params.total,
+      }
+    ).then(
+      () => console.log('[LOVEE] Order backup email sent ✅'),
+      (err) => console.warn('[LOVEE] Email backup failed:', err)
+    );
+  };
+
+  // Delay 300ms agar tidak mengganggu WA redirect
+  setTimeout(send, 300);
 }
 
 /* ══════════════════════════════════
